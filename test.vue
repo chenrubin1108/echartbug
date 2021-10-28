@@ -1,7 +1,7 @@
 <template>
   <div>
     <div @click="clickEvent">点击请求接口动态改变x轴数据</div>
-    <div style="width: 600px;height:400px;" id="myChartdom"></div>
+    <div style="width: 600px; height: 400px" id="myChartdom"></div>
   </div>
 </template>
 <script>
@@ -17,6 +17,7 @@ export default defineComponent({
   setup() {
     // 初始化
     let EchartDataNameList = ref([]);
+    const { proxy } = getCurrentInstance();
     let initEchart = () => {
       let myChartdom = echarts.init(document.getElementById("myChartdom"));
       myChartdom.on("click", function (params) {
@@ -25,7 +26,6 @@ export default defineComponent({
           return;
           // alert("单击了"+params.value+"x轴标签");
         }
-        
       });
       myChartdom.setOption({
         title: {
@@ -34,7 +34,7 @@ export default defineComponent({
         xAxis: {
           // 宽度
           type: "category",
-          data:["1","2","3"],
+          data: ["1", "2", "3"],
           // data: EchartDataNameList.value,
 
           silent: false,
@@ -53,7 +53,7 @@ export default defineComponent({
         },
         yAxis: {},
         dataZoom: {
-          realtime:true,
+          realtime: true,
           height: 10,
           start: 40,
           end: 65,
@@ -96,7 +96,7 @@ export default defineComponent({
       // )
       // .then(async (res) => {
       //   if (res) {
-        // EchartDataNameList ["公司名称","公司名称2"]
+      // EchartDataNameList ["公司名称","公司名称2"]
       //   EchartDataNameList.value =res.map((res) => res.name)
       //   }
       //   await nextTick();
@@ -104,9 +104,8 @@ export default defineComponent({
     };
     onMounted(() => {
       initEchart();
-    
     });
-    return { EchartDataNameList,initEchart, clickEvent };
+    return { EchartDataNameList, initEchart, clickEvent };
   },
 });
 </script>
