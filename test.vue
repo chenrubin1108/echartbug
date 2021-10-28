@@ -106,7 +106,7 @@ export default defineComponent({
       initEchart();
     
     });
-    return { initEchart, clickEvent };
+    return { EchartDataNameList,initEchart, clickEvent };
   },
 });
 </script>
