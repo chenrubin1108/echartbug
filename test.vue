@@ -25,23 +25,7 @@ export default defineComponent({
           return;
           // alert("单击了"+params.value+"x轴标签");
         }
-        proxy.$dialog({
-          //   title: "审议结果",
-          //   是否显示最大弹窗
-          max: true,
-          width: 1055,
-          height: 400,
-          content: {
-            component: EchartDialog,
-            props: {
-              resultArray: [],
-            },
-            handle: true,
-          },
-
-          ok: (args) => {},
-        });
-        console.log(params);
+        
       });
       myChartdom.setOption({
         title: {
